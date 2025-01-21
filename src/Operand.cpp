@@ -16,7 +16,7 @@ Operand::Operand(string operand) {
     this->operand = operand;
 };
 
-int Operand::resolve(int left, int right) {
+float Operand::resolve(float left, float right) {
     if (operand == "+") return left + right;
     else if (operand == "-") return left - right;
     else if (operand == "*") return left * right;
@@ -31,7 +31,7 @@ int Operand::resolve(int left, int right) {
     else if (operand == ">=") return left >= right;
 };
 
-int Operand::resolve(int expression) {
+float Operand::resolve(float expression) {
     if (operand == "+") return +expression;
     else if (operand == "-") return -expression;
 };

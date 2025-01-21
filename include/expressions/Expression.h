@@ -3,7 +3,7 @@
 
 class Expression {
     public:
-        virtual int evaluate();
+        virtual float evaluate();
 };
 
 #endif

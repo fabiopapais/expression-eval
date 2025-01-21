@@ -13,7 +13,7 @@ class UnaryExpression : public Expression {
         UnaryExpression(Expression* expression, Operand operand);
         ~UnaryExpression();
 
-        int evaluate() override;
+        float evaluate() override;
 };
 
 

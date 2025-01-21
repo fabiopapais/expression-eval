@@ -5,11 +5,11 @@
 
 class LiteralExpression : public Expression {
     private:
-        int value;
+        float value;
 
     public:
-        LiteralExpression(int value);
-        int evaluate() override;
+        LiteralExpression(float value);
+        float evaluate() override;
 };
 
 #endif

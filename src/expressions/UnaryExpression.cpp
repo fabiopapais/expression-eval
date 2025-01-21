@@ -12,8 +12,8 @@ UnaryExpression::~UnaryExpression() {
     delete expression;
 }
 
-int UnaryExpression::evaluate() {
-    int expression_value = expression->evaluate();
+float UnaryExpression::evaluate() {
+    float expression_value = expression->evaluate();
 
     return operand.resolve(expression_value);
 

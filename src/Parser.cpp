@@ -229,7 +229,6 @@ Expression* Parser::parse_primary_exp() {
             cout << "error: expected ')'" << endl;
             // TODO: Handle with exceptions
         }
-
         pos++; // consumes ')'
 
         return expression;
@@ -244,18 +243,18 @@ Expression* Parser::parse_primary_exp() {
             pos++;
         }
 
-        int int_literal = string_to_int(literal);
+        float int_literal = string_to_float(literal);
 
         return new LiteralExpression(int_literal);
     }
 }
 
-int Parser::string_to_int(string str) {
+float Parser::string_to_float(string str) {
     if (str == "true") {
-        return 1;
+        return 1.0;
     } else if (str == "false") {
-        return 0;
+        return 0.0;
     } else {
-        return stoi(str); // Parse as an integer
+        return stof(str); // Parse as an integer
     }
 }

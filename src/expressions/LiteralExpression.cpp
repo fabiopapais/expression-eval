@@ -3,10 +3,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-LiteralExpression::LiteralExpression(int value): 
+LiteralExpression::LiteralExpression(float value): 
     value(value) {};
 
-int LiteralExpression::evaluate() {
+float LiteralExpression::evaluate() {
     return value;
 
     // TODO: Handle with exceptions 

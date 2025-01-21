@@ -26,7 +26,7 @@ private:
     Expression* parse_unary_exp();
     Expression* parse_primary_exp();
 
-    int string_to_int(string str);
+    float string_to_float(string str);
 
 public:
     Parser(const string expr);

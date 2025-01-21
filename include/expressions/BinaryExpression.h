@@ -14,7 +14,7 @@ class BinaryExpression : public Expression {
         BinaryExpression(Expression* left, Operand operand, Expression* right);
         ~BinaryExpression();
 
-        int evaluate() override;
+        float evaluate() override;
 };
 
 

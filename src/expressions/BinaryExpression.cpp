@@ -14,9 +14,9 @@ BinaryExpression::~BinaryExpression() {
     delete right;
 }
 
-int BinaryExpression::evaluate() {
-    int left_value = left->evaluate();
-    int right_value = right->evaluate();
+float BinaryExpression::evaluate() {
+    float left_value = left->evaluate();
+    float right_value = right->evaluate();
 
     return operand.resolve(left_value, right_value);
 

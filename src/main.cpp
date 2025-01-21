@@ -5,18 +5,14 @@
 using namespace std;
 
 void testExpression(const string expr) {
-    try {
-        Parser parser(expr);
-        Expression* parsedExpression = parser.parse();
+    Parser parser(expr);
+    Expression* parsedExpression = parser.parse();
 
-        int result = parsedExpression->evaluate();
+    float result = parsedExpression->evaluate();
 
-        std::cout << "Expression: " << expr << " = " << result << endl;
+    std::cout << "Expression: " << expr << " = " << result << endl;
 
-        delete parsedExpression; // Cleanup
-    } catch (exception e) {
-        cerr << "Error parsing expression '" << expr << "': " << e.what() << endl;
-    }
+    delete parsedExpression; // Cleanup
 }
 
 int main() {
@@ -37,3 +33,7 @@ int main() {
 
     return 0;
 }
+
+// handle boolean + integer operations
+// handle boolean operations and comparisons (and output as boolean)
+// handle  "( 2 - - -3 ) * 2"
