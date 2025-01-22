@@ -9,26 +9,24 @@ void test_expression_interpret(string expr) {
         Parser parser(expr);
         Expression* parsedExpression = parser.parse();
 
-        // Try boolean evaluation
+        // try boolean evaluation
         try {
             bool booleanResult = parsedExpression->evaluate_boolean();
             cout << "Expression: " << expr << " = " << (booleanResult ? "true" : "false") << endl;
-        } catch (std::exception) {
-            // If boolean evaluation fails, tries integer evaluation
+        } catch (exception) {
+            // if boolean evaluation fails, tries integer evaluation
             int intResult = parsedExpression->evaluate();
             cout << "Expression: " << expr << " = " << intResult << endl;
         }
 
         // free tree
         delete parsedExpression;
-    } catch (const std::exception& e) {
-        // Handle errors during parsing or evaluation
+    } catch (const exception e) {
         cerr << "Error while processing \"" << expr << "\": " << e.what() << endl;
     }
 }
 
 int test_cases() {
-    // Test cases
     vector<string> testCases = {
         "7",
         "2 + 3 * 2",
@@ -36,10 +34,9 @@ int test_cases() {
         "3 / 2",
         "true || false == false",
         "( true || false ) == false",
-        "true + 3", // This will trigger an error
+        "true + 3",
     };
 
-    // Run each test case
     for (const auto testCase : testCases) {
         test_expression_interpret(testCase);
     }

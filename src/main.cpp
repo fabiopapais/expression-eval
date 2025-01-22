@@ -29,7 +29,7 @@ void test_expression(string expr) {
 int main() {
     unsigned int n; 
     cin >> n;
-    cin.ignore(); // Ignore the newline character after the number input
+    cin.ignore();
     for (int i = 0; i < n; i++) {
         string expr;
         getline(cin, expr);

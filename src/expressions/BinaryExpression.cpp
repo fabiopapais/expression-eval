@@ -19,8 +19,6 @@ int BinaryExpression::evaluate() {
     int right_value = right->evaluate();
 
     return operand.resolve(left_value, right_value);
-
-    // TODO: Handle with exceptions
 }
 
 bool BinaryExpression::evaluate_boolean() {
@@ -28,6 +26,4 @@ bool BinaryExpression::evaluate_boolean() {
     bool right_value = right->evaluate_boolean();
 
     return operand.resolve(left_value, right_value);
-
-    // TODO: Handle with exceptions
 }

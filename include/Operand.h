@@ -10,10 +10,10 @@ class Operand {
     
     public:
         Operand(string operand);
-        // For integers
+        // for integers
         int resolve(int left, int right);
         int resolve(int expression);
-        // For booleans
+        // for booleans
         bool resolve(bool left, bool right);
 };
 

@@ -226,8 +226,7 @@ Expression* Parser::parse_primary_exp() {
         Expression* expression = parse_exp();
 
         if (pos >= str_expression.length() || str_expression[pos] != ')') {
-            cout << "error: expected ')'" << endl;
-            // TODO: Handle with exceptions
+            throw invalid_argument("Expected ')'");
         }
         pos++; // consumes ')'
 
