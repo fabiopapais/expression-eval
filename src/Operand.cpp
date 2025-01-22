@@ -18,7 +18,12 @@ int Operand::resolve(int left, int right) {
     if (operand == "+") return left + right;
     else if (operand == "-") return left - right;
     else if (operand == "*") return left * right;
-    else if (operand == "/") return left / right;
+    else if (operand == "/") {
+        if (right == 0) {
+            throw invalid_argument("Division by zero");
+        }
+        return left / right;
+    }
     else if (operand == "||") return left || right;
     else if (operand == "&&") return left && right;
     else if (operand == "==") return left == right;
