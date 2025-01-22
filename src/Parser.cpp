@@ -8,13 +8,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+Parser::Parser(const string expr): str_expression(expr), pos(0) {};
+
 void Parser::skipWhitespace() {
     while (pos < str_expression.length() && isspace(str_expression[pos])) {
         pos++;
     }
 }
-
-Parser::Parser(const string expr): str_expression(expr), pos(0) {};
 
 Expression* Parser::parse() {
     return parse_exp();
@@ -205,14 +205,14 @@ Expression* Parser::parse_unary_exp() {
 
     if (str_expression[pos] == '+' || str_expression[pos] == '-') {
         Operand operand = Operand(string(1, str_expression[pos]));
-
         pos++;
 
-        Expression* expression = parse_primary_exp();
-
+        // recursively parse the next expression
+        Expression* expression = parse_unary_exp();
         return new UnaryExpression(expression, operand);
     }
 
+    // if not a unary operator, parse as primary expression
     return parse_primary_exp();
 }
 
@@ -243,18 +243,9 @@ Expression* Parser::parse_primary_exp() {
             pos++;
         }
 
-        float int_literal = string_to_float(literal);
-
-        return new LiteralExpression(int_literal);
-    }
-}
-
-float Parser::string_to_float(string str) {
-    if (str == "true") {
-        return 1.0;
-    } else if (str == "false") {
-        return 0.0;
-    } else {
-        return stof(str); // Parse as an integer
+        // decides which path evaluation (integer/boolean) to take
+        if (literal == "true") return new LiteralExpression(true);
+        else if (literal == "false") return new LiteralExpression(false);
+        else return new LiteralExpression(stoi(literal));
     }
 }

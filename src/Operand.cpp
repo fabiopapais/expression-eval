@@ -8,15 +8,13 @@ Operand::Operand(string operand) {
                                                 "==", "!=", "<", ">", "<=", ">="};
     
     if (accepted_values.find(operand) == accepted_values.end()) {
-        cout << "error" << endl;
-        // TODO: handle exceptions  
-        // throw invalid_argument("Invalid operand");
+        throw invalid_argument("Invalid operand");
     }
 
     this->operand = operand;
 };
 
-float Operand::resolve(float left, float right) {
+int Operand::resolve(int left, int right) {
     if (operand == "+") return left + right;
     else if (operand == "-") return left - right;
     else if (operand == "*") return left * right;
@@ -31,7 +29,14 @@ float Operand::resolve(float left, float right) {
     else if (operand == ">=") return left >= right;
 };
 
-float Operand::resolve(float expression) {
+int Operand::resolve(int expression) {
     if (operand == "+") return +expression;
     else if (operand == "-") return -expression;
+};
+
+bool Operand::resolve(bool left, bool right) {
+    if (operand == "||") return left || right;
+    else if (operand == "&&") return left && right;
+    else if (operand == "==") return left == right;
+    else if (operand == "!=") return left != right;
 };

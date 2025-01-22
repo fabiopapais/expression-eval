@@ -10,8 +10,11 @@ class Operand {
     
     public:
         Operand(string operand);
-        float resolve(float left, float right);
-        float resolve(float expression);
+        // For integers
+        int resolve(int left, int right);
+        int resolve(int expression);
+        // For booleans
+        bool resolve(bool left, bool right);
 };
 
 #endif

@@ -13,7 +13,8 @@ class UnaryExpression : public Expression {
         UnaryExpression(Expression* expression, Operand operand);
         ~UnaryExpression();
 
-        float evaluate() override;
+        int evaluate() override;
+        bool evaluate_boolean() override;
 };
 
 

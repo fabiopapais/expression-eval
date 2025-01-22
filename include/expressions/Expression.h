@@ -3,7 +3,8 @@
 
 class Expression {
     public:
-        virtual float evaluate();
+        virtual int evaluate();
+        virtual bool evaluate_boolean();
 };
 
 #endif

@@ -1,3 +1,4 @@
 #include "../../include/expressions/Expression.h"
 
-float Expression::evaluate() { return 0; }
+int Expression::evaluate() { return 0; }
+bool Expression::evaluate_boolean() { return false; }

@@ -4,36 +4,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void testExpression(const string expr) {
-    Parser parser(expr);
-    Expression* parsedExpression = parser.parse();
+void test_expression(string expr) {
+    try {
+        Parser parser(expr);
+        Expression* parsedExpression = parser.parse();
 
-    float result = parsedExpression->evaluate();
+        // try boolean evaluation
+        try {
+            bool booleanResult = parsedExpression->evaluate_boolean();
+            cout << (booleanResult ? "true" : "false") << endl;
+        } catch (exception) {
+            // if boolean evaluation fails, tries integer evaluation
+            int intResult = parsedExpression->evaluate();
+            cout << intResult << endl;
+        }
 
-    std::cout << "Expression: " << expr << " = " << result << endl;
-
-    delete parsedExpression; // Cleanup
+        // free tree
+        delete parsedExpression;
+    } catch (exception) {
+        cout << "error" << endl;
+    }
 }
 
 int main() {
-    std::vector<std::string> testCases = {
-        "7",
-        "2 + 3 * 2",
-        "( 2 - - -3 ) * 2",
-        "3 / 2",
-        "true || false == false",
-        "( true || false ) == false",
-        "true + 3",
-    };
+    unsigned int n; 
+    cin >> n;
+    cin.ignore(); // Ignore the newline character after the number input
+    for (int i = 0; i < n; i++) {
+        string expr;
+        getline(cin, expr);
 
-
-    for (const auto& testCase : testCases) {
-        testExpression(testCase);
+        test_expression(expr);
     }
 
     return 0;
 }
-
-// handle boolean + integer operations
-// handle boolean operations and comparisons (and output as boolean)
-// handle  "( 2 - - -3 ) * 2"

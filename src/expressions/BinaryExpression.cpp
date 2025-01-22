@@ -14,12 +14,20 @@ BinaryExpression::~BinaryExpression() {
     delete right;
 }
 
-float BinaryExpression::evaluate() {
-    float left_value = left->evaluate();
-    float right_value = right->evaluate();
+int BinaryExpression::evaluate() {
+    int left_value = left->evaluate();
+    int right_value = right->evaluate();
 
     return operand.resolve(left_value, right_value);
 
-    // TODO: Handle with exceptions 
-    // else throw runtime_error("Unsupported operator for integers");
+    // TODO: Handle with exceptions
+}
+
+bool BinaryExpression::evaluate_boolean() {
+    bool left_value = left->evaluate_boolean();
+    bool right_value = right->evaluate_boolean();
+
+    return operand.resolve(left_value, right_value);
+
+    // TODO: Handle with exceptions
 }

@@ -3,13 +3,25 @@
 
 #include "Expression.h"
 
+#include <string>
+
 class LiteralExpression : public Expression {
     private:
-        float value;
+        enum class Type {
+            INT,
+            BOOLEAN
+        };
+
+        Type type;
+
+        int value;
+        bool boolean_value;
 
     public:
-        LiteralExpression(float value);
-        float evaluate() override;
+        LiteralExpression(int value);
+        LiteralExpression(bool value);
+        int evaluate() override;
+        bool evaluate_boolean() override;
 };
 
 #endif

@@ -12,8 +12,17 @@ UnaryExpression::~UnaryExpression() {
     delete expression;
 }
 
-float UnaryExpression::evaluate() {
-    float expression_value = expression->evaluate();
+int UnaryExpression::evaluate() {
+    int expression_value = expression->evaluate();
+
+    return operand.resolve(expression_value);
+
+    // TODO: Handle with exceptions 
+    // else throw runtime_error("Unsupported operator for integers");
+}
+
+bool UnaryExpression::evaluate_boolean() {
+    bool expression_value = expression->evaluate_boolean();
 
     return operand.resolve(expression_value);
 
