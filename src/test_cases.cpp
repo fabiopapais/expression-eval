@@ -26,16 +26,26 @@ void test_expression_interpret(string expr) {
     }
 }
 
-int test_cases() {
+int main() {
     vector<string> testCases = {
-        "7",
+        "19",
+        "1 + 1",
+        "2 == 2",
+        "2 > 3",
+        "( 2 > 3 ) || true",
+        "true || false",
+        "true || false || true",
+        "10 / 0",
+        "1",
         "2 + 3 * 2",
         "( 2 - - -3 ) * 2",
         "3 / 2",
         "true || false == false",
         "( true || false ) == false",
         "true + 3",
+        "(3 == 3) && (4 > 3)"
     };
+
 
     for (const auto testCase : testCases) {
         test_expression_interpret(testCase);

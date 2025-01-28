@@ -14,7 +14,7 @@ private:
     string str_expression;
     int pos;
     
-    void skipWhitespace();
+    inline void skipWhitespace();
     
     Expression* parse_exp();
     Expression* parse_or_exp();

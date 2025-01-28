@@ -15,6 +15,8 @@ class Operand {
         int resolve(int expression);
         // for booleans
         bool resolve(bool left, bool right);
+
+        string get_operand();
 };
 
 #endif

@@ -32,11 +32,13 @@ int Operand::resolve(int left, int right) {
     else if (operand == ">") return left > right;
     else if (operand == "<=") return left <= right;
     else if (operand == ">=") return left >= right;
+    return 0;
 };
 
 int Operand::resolve(int expression) {
     if (operand == "+") return +expression;
     else if (operand == "-") return -expression;
+    return 0;
 };
 
 bool Operand::resolve(bool left, bool right) {
@@ -44,4 +46,9 @@ bool Operand::resolve(bool left, bool right) {
     else if (operand == "&&") return left && right;
     else if (operand == "==") return left == right;
     else if (operand == "!=") return left != right;
+    return false;
+};
+
+string Operand::get_operand() {
+    return operand;
 };

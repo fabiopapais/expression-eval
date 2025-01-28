@@ -10,7 +10,7 @@ using namespace std;
 
 Parser::Parser(const string expr): str_expression(expr), pos(0) {};
 
-void Parser::skipWhitespace() {
+inline void Parser::skipWhitespace() {
     while (pos < str_expression.length() && isspace(str_expression[pos])) {
         pos++;
     }

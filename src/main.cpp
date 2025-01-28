@@ -26,7 +26,7 @@ void test_expression(string expr) {
     }
 }
 
-int main() {
+int test() {
     unsigned int n; 
     cin >> n;
     cin.ignore();
